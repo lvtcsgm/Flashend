@@ -1,15 +1,28 @@
 void setup() { 
   size(1000, 1000);
-  noStroke();
+  stroke(255);
+  strokeWeight(3);
   fill(255);
+  
 }
+
 float x = random(width);
 float y = random(height);
 float angle;
 float jitter;
+float radius = 50;
+float theta = 0;
 
 void draw() {
   background(0);
+  //spirals
+  float a = radius*cos(theta);
+  float b = radius*sin(theta);
+  ellipse(height/2 + a, width/2 +b , 10, 10);
+  ellipse(height/2 - a, width/2 -b , 10, 10);
+  radius += 0.1;
+  theta += 0.05;
+//random small ellipses in the background 
   float wave1 = sin(radians(frameCount)*5);
   float wave2 = tan(radians(frameCount));
   for(int i = 0; i < 1; i++){
@@ -48,4 +61,5 @@ jitter = random(0,0.1);
   rect(0, 0, 20, 20); 
   rotate(c*50);
   rect(0, 0, 20, 20); 
+  
 }
